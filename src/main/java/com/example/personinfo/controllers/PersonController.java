@@ -26,7 +26,7 @@ import com.example.personinfo.services.PersonService;
  * @since 2020-08-15
  */
 @RestController
-@RequestMapping(value = "person")
+@RequestMapping(value = "person-info")
 public class PersonController {
 
     @Autowired

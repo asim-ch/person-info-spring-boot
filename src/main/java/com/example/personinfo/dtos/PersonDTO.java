@@ -1,12 +1,14 @@
 package com.example.personinfo.dtos;
 
-import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+
+import com.example.personinfo.annotations.ValidDate;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -48,14 +50,16 @@ public class PersonDTO extends AuditTableDTO {
     @Size(min = 2, max = 5, message = "sex must be greater than 2 and less than 5 characters")
     private String sex;
 
-    @Email
+    @Email(message="Please provide a valid email address")
     private String email;
 
     @Size(min = 7, max = 20, message = "phone must be grater than 7 and less than 20 characters")
     private String phone;
 
+    @ValidDate
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date birthday;
+    @Pattern(regexp="\\d{2}-\\d{2}-\\d{4}", message="Please provide a valid date format i.e. dd-MM-yyyy")
+    private String birthday;
 
     @Min(value = 0, message = "age must be greater than 0")
     @Max(value = 100, message = "age must be less than 100")

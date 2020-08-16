@@ -1,4 +1,4 @@
-package com.example.personinfo;
+package com.example.personinfo.exceptions;
 
 import com.example.personinfo.dtos.CustomErrorDTO;
 

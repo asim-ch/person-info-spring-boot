@@ -6,8 +6,8 @@ import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
@@ -23,11 +23,11 @@ import lombok.Data;
 @Data
 public abstract class AuditTable {
 
-    @CreatedDate
+    @CreationTimestamp
     @Column(name = "created", updatable = false)
     private Instant created;
 
-    @LastModifiedDate
+    @UpdateTimestamp
     @Column(name = "modified")
     private Instant modified;
 }

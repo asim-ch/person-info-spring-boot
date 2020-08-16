@@ -11,9 +11,10 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
-import com.example.personinfo.PersonInfoException;
+
 import com.example.personinfo.dtos.CustomErrorDTO;
 import com.example.personinfo.dtos.ValidationErrorDTO;
+import com.example.personinfo.exceptions.PersonInfoException;
 
 /**
  * This class is acting as a spring rest controller advice which is used to

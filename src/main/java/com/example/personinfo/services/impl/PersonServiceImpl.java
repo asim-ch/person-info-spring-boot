@@ -25,7 +25,7 @@ import org.springframework.stereotype.Service;
 import com.example.personinfo.entities.Contact;
 import com.example.personinfo.entities.Person;
 import com.example.personinfo.entities.PersonContact;
-import com.example.personinfo.PersonInfoException;
+import com.example.personinfo.exceptions.PersonInfoException;
 import com.example.personinfo.dtos.ContactDTO;
 import com.example.personinfo.dtos.CustomErrorDTO;
 import com.example.personinfo.dtos.PersonDTO;
@@ -107,7 +107,7 @@ public class PersonServiceImpl implements PersonService {
      */
     @Override
     @Transactional
-    @Cacheable(cacheNames="getAllPersonsCache", key="#pageNumber")
+    @Cacheable(cacheNames="getAllPersonsCache", key="#pageNumber-#pageSize")
     public List<PersonDTO> getAllPersons(Integer pageNumber, Integer pageSize) {
         List<PersonDTO> personDTOs = new ArrayList<>();
 
@@ -294,8 +294,7 @@ public class PersonServiceImpl implements PersonService {
      * have all the information including its contacts. It's uses cache to
      * clear/update relevant entries on different caches.
      * 
-     * @param personDTO
-     *            [PersonDTO] - person DTO object
+     * @param personDTO [PersonDTO] - person DTO object
      * @return personDTO [PersonDTO] - updated person DTO object
      */
     @Override
@@ -310,7 +309,7 @@ public class PersonServiceImpl implements PersonService {
                 if (personObj.isPresent()) {
                     Person person = mapper.map(personDTO, Person.class);
                     person.setPersonContacts(getContacts(personDTO, person));
-                    person = personRepository.save(person);
+                    person = personRepository.saveAndFlush(person);
                     personDTO = ResponseHandler.buildPersonResponse(person, mapper);
                 } else {
                     throw new PersonInfoException(new CustomErrorDTO(HttpStatus.NOT_FOUND, "Not found",

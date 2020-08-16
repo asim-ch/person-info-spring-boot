@@ -2,6 +2,8 @@ package com.example.personinfo.dtos;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -22,6 +24,7 @@ public class ContactDTO extends AuditTableDTO {
     private String sex;
     private String email;
     private String phone;
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private Date birthday;
     private Integer age;
 }
