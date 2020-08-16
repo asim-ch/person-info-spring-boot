@@ -18,7 +18,7 @@ import com.example.personinfo.utils.DateUtils;
 * different validations on the provided date string.
 *
 * @author  Asim shahzad
-* @since   2020-09-15 
+* @since   2020-08-16 
 */
 public class DateValidator implements ConstraintValidator<ValidDate, String> {
 

@@ -21,7 +21,8 @@ import com.example.personinfo.exceptions.PersonInfoException;
  * handle exceptions globally, it is used to avoid defining exception handler in
  * each controller explicitly to handle exceptions.
  * 
- * @author ASIM SHAHZAD
+ * @author Asim shahzad
+ * @since   2020-08-16
  *
  */
 @RestControllerAdvice
