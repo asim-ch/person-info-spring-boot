@@ -16,7 +16,7 @@ This is a simple app used to store person and contacts information.
 
 # DB Design
 
-![image info](./images/person_info_ER_diagram.png)
+![Alt text](https://github.com/asim-ch/person-info-spring-boot/blob/master/images/person_info_ER_diagram.PNG "ER Diagram")
 
 # Getting Started
 
