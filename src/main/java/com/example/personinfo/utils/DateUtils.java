@@ -26,7 +26,6 @@ public class DateUtils {
      * 
      * @param dateString [String] - date String
      * @return date [Date] - date object
-     * @throws Exception 
      */
     public static Date convertStringToDate(String dateString) {
         Date date = null;
@@ -62,7 +61,7 @@ public class DateUtils {
     }
 
     /**
-     * This method is used to check if date is in valid range.
+     * This method is used to check if date is valid.
      * 
      * @param date [Date] - date object
      * @return status [boolean] - status flag
@@ -77,7 +76,7 @@ public class DateUtils {
                 status = true;
             }
          } catch (Exception e) {
-            LOGGER.error("Error occured while converting date to string, error: " + e.toString());
+            LOGGER.error("Error occured while validating date, error: " + e.toString());
          }
 
         return status;
