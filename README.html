@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>person-info-spring-boot</title>
+        <style>
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="person-info-spring-boot">person-info-spring-boot</h1>
+<p>This is a simple app used to store person and contacts information.</p>
+<h1 id="technical-stack">Technical Stack</h1>
+<ul>
+<li>Java 8</li>
+<li>Maven</li>
+<li>Spring Boot</li>
+<li>Spring JPA Data</li>
+<li>Hibernate with SQL database</li>
+<li>Spring Cache with Ehcache manager</li>
+<li>Lombok</li>
+<li>ModelMapper</li>
+<li>REST API model validation</li>
+</ul>
+<h1 id="db-design">DB Design</h1>
+<p><img src="file:///e:\Important\mc3-international\repo\person-info-spring-boot\images\person_info_ER_diagram.png" alt="image info"></p>
+<h1 id="getting-started">Getting Started</h1>
+<ul>
+<li>
+<p>Import schema in your sql DB to create required database. Please find schema.sql file in the root folder of this project. DB tables shall automatically be created using hibernate ddl on application startup.</p>
+</li>
+<li>
+<p>Use these commands on the root folder to build and start the application.</p>
+<pre><code><code><div>./mvnw spring-boot:run
+</div></code></code></pre>
+<p>OR</p>
+<pre><code><code><div>mvn spring-boot:run
+</div></code></code></pre>
+</li>
+<li>
+<p>To stop the application use these commands on the root folder.</p>
+<pre><code><code><div>./mvnw spring-boot:stop
+</div></code></code></pre>
+<p>OR</p>
+<pre><code><code><div>mvn spring-boot:stop
+</div></code></code></pre>
+</li>
+<li>
+<p>After starting the application you can access it on your local machine on the following path <a href="http://localhost:8080/person-info">http://localhost:8080/person-info</a></p>
+</li>
+</ul>
+<h1 id="curl-examples-for-api-endpoints">CURL examples for API endpoints</h1>
+<h2 id="add-a-person">Add a Person</h2>
+<pre><code><code><div>curl -d '{&quot;name&quot;:&quot;person-updated&quot;, &quot;surname&quot;:&quot;person-updated&quot;, &quot;age&quot;: 25, &quot;sex&quot;: &quot;Male&quot;, &quot;phone&quot;: &quot;9243950838989&quot;,&quot;email&quot;: &quot;test@gmail.com&quot;,&quot;birthday&quot;: &quot;20-08-1996&quot;' -H &quot;Content-Type: application/json&quot; -X POST http://localhost:8080/person-info/add
+</div></code></code></pre>
+<p><strong>Note: To add contacts for a person, contact person ID must exist in DB</strong></p>
+<h2 id="get-a-person-by-id">Get a Person by ID</h2>
+<pre><code><code><div>curl -d -H &quot;Content-Type: application/json&quot; -X GET http://localhost:8080/person-info/get/2
+</div></code></code></pre>
+<h2 id="update-a-person">Update a Person</h2>
+<pre><code><code><div>curl -d '{&quot;id&quot;:&quot;1&quot;, &quot;name&quot;:&quot;person-updated&quot;, &quot;surname&quot;:&quot;person-updated&quot;, &quot;age&quot;: 25, &quot;sex&quot;: &quot;Male&quot;, &quot;phone&quot;: &quot;9243950838989&quot;,&quot;email&quot;: &quot;test@gmail.com&quot;,&quot;birthday&quot;: &quot;20-08-1996&quot;}' -H &quot;Content-Type: application/json&quot; -X POST http://localhost:8080/person-info/update
+
+</div></code></code></pre>
+<h2 id="delete-a-person">Delete a Person</h2>
+<pre><code><code><div>curl -d -H &quot;Content-Type: application/json&quot; -X DELETE http://localhost:8080/person-info/delete/1
+</div></code></code></pre>
+<h2 id="get-persons-based-on-pagination-parameters">Get Persons based on Pagination parameters</h2>
+<pre><code><code><div>curl -X GET 'http://localhost:8080/person-info/get/all?pageNumber=0&amp;pageSize=2'
+</div></code></code></pre>
+
+    </body>
+    </html>
