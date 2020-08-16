@@ -18,8 +18,8 @@ import com.example.personinfo.entities.Person;
 import com.example.personinfo.utils.DateUtils;
 
 /**
- * This is the main configuration class to configure the EHCache manager to
- * leverage cache functionalities in our application.
+ * This is the main configuration class to configure the appliaction and also inject
+ * required beans in the application context.
  *
  * @author Asim shahzad
  * @since 2020-08-15
