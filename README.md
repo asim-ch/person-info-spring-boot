@@ -46,7 +46,7 @@ Add a Person
 ------------
 
 ```
-curl -d '{"name":"person-updated", "surname":"person-updated", "age": 25, "sex": "Male", "phone": "9243950838989","email": "test@gmail.com","birthday": "20-08-1996"' -H "Content-Type: application/json" -X POST http://localhost:8080/person-info/add
+curl -d '{"name":"person-updated", "surname":"person-updated", "age": 25, "sex": "Male", "phone": "9243950838989","email": "test@gmail.com","birthday": "20-08-1996"}' -H "Content-Type: application/json" -X POST http://localhost:8080/person-info/add
 ```
 **Note: To add contacts for a person, contact person ID must exist in DB**
 
